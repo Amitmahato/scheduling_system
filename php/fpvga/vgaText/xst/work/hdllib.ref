@@ -1,0 +1,12 @@
+AR blockramarbiter behavioral E:/xampp/htdocs/tt/php/fpvga/vgaText/blockRamArbiter.vhd sub00/vhpl07 1502406850
+PH commonpak NULL E:/xampp/htdocs/tt/php/fpvga/vgaText/commonPak.vhd sub00/vhpl00 1502406843
+EN basicblockram NULL E:/xampp/htdocs/tt/php/fpvga/vgaText/basicBlockRAM.vhd sub00/vhpl02 1502406845
+EN blockramarbiter NULL E:/xampp/htdocs/tt/php/fpvga/vgaText/blockRamArbiter.vhd sub00/vhpl06 1502406849
+PB commonpak commonpak E:/xampp/htdocs/tt/php/fpvga/vgaText/commonPak.vhd sub00/vhpl01 1502406844
+AR fontrom behavioral E:/xampp/htdocs/tt/php/fpvga/vgaText/fontROM.vhd sub00/vhpl05 1502406848
+EN vgatext_top NULL E:/xampp/htdocs/tt/php/vgaText_top.vhd sub00/vhpl10 1502406853
+AR vgatext_top behavioral E:/xampp/htdocs/tt/php/vgaText_top.vhd sub00/vhpl11 1502406854
+AR text_line behavioral E:/xampp/htdocs/tt/php/fpvga/vgaText/text_line.vhd sub00/vhpl09 1502406852
+EN fontrom NULL E:/xampp/htdocs/tt/php/fpvga/vgaText/fontROM.vhd sub00/vhpl04 1502406847
+EN text_line NULL E:/xampp/htdocs/tt/php/fpvga/vgaText/text_line.vhd sub00/vhpl08 1502406851
+AR basicblockram behavioral E:/xampp/htdocs/tt/php/fpvga/vgaText/basicBlockRAM.vhd sub00/vhpl03 1502406846

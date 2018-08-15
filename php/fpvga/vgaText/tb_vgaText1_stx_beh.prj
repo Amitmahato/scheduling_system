@@ -1,0 +1,7 @@
+vhdl isim_temp "commonPak.vhd"
+vhdl isim_temp "fontROM.vhd"
+vhdl isim_temp "basicBlockRAM.vhd"
+vhdl isim_temp "text_line.vhd"
+vhdl isim_temp "blockRamArbiter.vhd"
+vhdl isim_temp "../../vgaText_top.vhd"
+vhdl isim_temp "tb_vgaText1.vhd"

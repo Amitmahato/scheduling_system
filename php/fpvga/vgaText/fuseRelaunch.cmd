@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "E:/xampp/htdocs/tt/php/fpvga/vgaText/tb_vgaText3_isim_beh.exe" -prj "E:/xampp/htdocs/tt/php/fpvga/vgaText/tb_vgaText3_beh.prj" "work.tb_vgaText3" 

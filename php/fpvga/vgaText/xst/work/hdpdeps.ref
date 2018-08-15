@@ -1,0 +1,50 @@
+V3 28
+FL E:/embedded/FP-V-GA-Text-master/vgaText/basicBlockRAM.vhd 2013/12/15.18:33:32 P.58f
+FL E:/embedded/FP-V-GA-Text-master/vgaText/blockRamArbiter.vhd 2013/12/15.18:33:32 P.58f
+FL E:/embedded/FP-V-GA-Text-master/vgaText/commonPak.vhd 2013/12/15.18:33:32 P.58f
+FL E:/embedded/FP-V-GA-Text-master/vgaText/fontROM.vhd 2013/12/15.18:33:32 P.58f
+FL E:/embedded/FP-V-GA-Text-master/vgaText/text_line.vhd 2013/12/15.18:33:32 P.58f
+FL E:/embedded/FP-V-GA-Text-master/vgaText/vgaText_top.vhd 2017/08/05.17:39:53 P.58f
+FL E:/xampp/htdocs/tt/php/fpvga/vgaText/basicBlockRAM.vhd 2013/12/15.18:33:32 P.58f
+EN work/basicBlockRAM 1502406845 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/basicBlockRAM.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/NUMERIC_STD 1364358223 \
+      PB work/commonPak 1502406844
+AR work/basicBlockRAM/Behavioral 1502406846 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/basicBlockRAM.vhd \
+      EN work/basicBlockRAM 1502406845
+FL E:/xampp/htdocs/tt/php/fpvga/vgaText/blockRamArbiter.vhd 2013/12/15.18:33:32 P.58f
+EN work/blockRamArbiter 1502406849 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/blockRamArbiter.vhd \
+      PB ieee/std_logic_1164 1364358218 PB work/commonPak 1502406844
+AR work/blockRamArbiter/Behavioral 1502406850 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/blockRamArbiter.vhd \
+      EN work/blockRamArbiter 1502406849 CP work/fontROM
+FL E:/xampp/htdocs/tt/php/fpvga/vgaText/commonPak.vhd 2013/12/15.18:33:32 P.58f
+PH work/commonPak 1502406843 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/commonPak.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/MATH_REAL 1364358224
+PB work/commonPak 1502406844 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/commonPak.vhd PH work/commonPak 1502406843
+FL E:/xampp/htdocs/tt/php/fpvga/vgaText/fontROM.vhd 2013/12/15.18:33:32 P.58f
+EN work/fontROM 1502406847 FL E:/xampp/htdocs/tt/php/fpvga/vgaText/fontROM.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/NUMERIC_STD 1364358223 \
+      PB work/commonPak 1502406844
+AR work/fontROM/Behavioral 1502406848 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/fontROM.vhd EN work/fontROM 1502406847
+FL E:/xampp/htdocs/tt/php/fpvga/vgaText/text_line.vhd 2013/12/15.18:33:32 P.58f
+EN work/text_line 1502406851 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/text_line.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/NUMERIC_STD 1364358223 \
+      PB work/commonPak 1502406844
+AR work/text_line/Behavioral 1502406852 \
+      FL E:/xampp/htdocs/tt/php/fpvga/vgaText/text_line.vhd EN work/text_line 1502406851 \
+      CP work/basicBlockRAM
+FL E:/xampp/htdocs/tt/php/vgaText_top.vhd 2017/08/11.04:58:11 P.58f
+EN work/vgaText_top 1502406853 FL E:/xampp/htdocs/tt/php/vgaText_top.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
+      PB std/TEXTIO 1364358218 PB ieee/STD_LOGIC_TEXTIO 1364358222 \
+      PB ieee/NUMERIC_STD 1364358223 PB work/commonPak 1502406844
+AR work/vgaText_top/Behavioral 1502406854 \
+      FL E:/xampp/htdocs/tt/php/vgaText_top.vhd EN work/vgaText_top 1502406853 \
+      CP work/blockRamArbiter CP work/text_line

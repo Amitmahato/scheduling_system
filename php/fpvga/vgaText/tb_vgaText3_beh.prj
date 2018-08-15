@@ -1,0 +1,7 @@
+vhdl work "commonPak.vhd"
+vhdl work "fontROM.vhd"
+vhdl work "basicBlockRAM.vhd"
+vhdl work "text_line.vhd"
+vhdl work "blockRamArbiter.vhd"
+vhdl work "../../vgaText_top.vhd"
+vhdl work "tb_vgaText3.vhd"

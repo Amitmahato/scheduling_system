@@ -1,0 +1,7 @@
+Timetable for BCT3                                                     	                                     	                                     	                                     	                                   
+SUNDAY:Embedded System[P];Embedded System[P];Embedded System[P];OOAD;OOAD;DBMS[P];DBMS[P];DBMS[P];Operating System
+MONDAY:Artificial Intelligence[P];Engineering Economics;DBMS;DBMS;Minor Project[P]; Minor Project[P];Operating System
+TUESDAY:Artificial Intelligence;Artificial Intelligence[P];Artificial Intelligence[P];BREAK; OOAD[P]; OOAD[P];OOAD[P];DBMS;Operating System
+WEDNESDAY:Artificial Intelligence;Artificial Intelligence;OOAD;OOAD;Minor Project;Operating System;Operating System
+THURSDAY:Embedded System;Embedded System;OOAD;BREAK;BREAK;Engineering Economics; Artificial Intelligence; Artificial Intelligence
+FRIDAY:Embedded System;DBMS

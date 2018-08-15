@@ -1,0 +1,6 @@
+vhdl work "E:\xampp\htdocs\tt\php\fpvga\vgaText\commonPak.vhd"
+vhdl work "E:\xampp\htdocs\tt\php\fpvga\vgaText\fontROM.vhd"
+vhdl work "E:\xampp\htdocs\tt\php\fpvga\vgaText\basicBlockRAM.vhd"
+vhdl work "E:\xampp\htdocs\tt\php\fpvga\vgaText\text_line.vhd"
+vhdl work "E:\xampp\htdocs\tt\php\fpvga\vgaText\blockRamArbiter.vhd"
+vhdl work "E:\xampp\htdocs\tt\php\vgaText_top.vhd"
