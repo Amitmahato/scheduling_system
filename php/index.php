@@ -5,17 +5,28 @@
 ?>
 <style>
 body {
-    background-color: #dfdfff;
+    margin:0;
 }
 hr {
     text-align: center;
 }
+
 h2 {
     font-size: 40px;
     color: rgb(50,50,50);
+    background-color: #dfdfff;
     text-align: center;
     padding: 8px;
+    font-weight: bold;
+    position: relative;
+    animation: disp 1s;
 }
+/* Standard syntax */
+@keyframes disp {
+  from {top: -50px; background-color:#fff;}
+  to {top: 0px;background-color: #dfdfff;}
+}
+
 h3 {
     color: rgb(40,40,40);
     text-align: left;
@@ -130,6 +141,36 @@ caption {
     display: table-caption;
     text-align: -webkit-center
 }
+
+.home{
+  font-weight: bold;
+  position: relative;
+}
+
+.timetable{
+    /* margin-left:40%; */
+    padding:20px;
+    width:30%;
+    /* align:center; */
+    position:relative;
+    left:35%;
+    border-left:5px solid blue ;
+    border-radius:20px;
+    box-shadow: 1px 1px 5px;
+    animation: displaytimetable 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode:backwards;
+}
+@keyframes displaytimetable {
+  from {opacity:0;}
+  to {opacity:100%;}
+}
+
+hr{
+    background-color:blue;
+    border:1px solid gray;
+}
+
 </style>
 <?php
 include_once("common.php");
@@ -152,10 +193,10 @@ function fetch_user_timetables($conn)
         $tt_name = $row['NAME'];
         $tt_days = $row['DAYS'];
         $timetables .= "<li>";
-        $timetables .= "<a href=\"manage_tt.php?id=$tt_id&name=$tt_name\">";
+        $timetables .= "<a style='text-decoration:none;' href=\"manage_tt.php?id=$tt_id&name=$tt_name\">";
         $timetables .= $tt_name;
         $timetables .= "</a>";
-        $timetables .= "- spans $tt_days days</li>";
+        $timetables .= " - spans $tt_days days</li>";
     }
     $timetables .= "</ol>";
     return $timetables;
@@ -230,12 +271,16 @@ _H;
 // page entry point
 $timetables = fetch_user_timetables($conn);
 print<<<_H
-<h2>Timetable</h2>
+<div class="home">
+    <a href="index.php" style="text-decoration:none;color:initial;"><h2>Timetable</h2></a>
 
-$timetables
-<a href="newtimetable.php">new timetable...</a>
+    <div class="timetable">
+        <div><b>$timetables</b></div>
+        <hr></hr>
+        <a style='text-decoration:none;' href="newtimetable.php">New Timetable...</a>
+    </div>
 <br><br>
-
+</div>
 _H;
 
 ?>
