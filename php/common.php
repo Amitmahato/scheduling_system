@@ -2,7 +2,6 @@
 
 <?php
 //session_start();
-
 	
 function render_timetable_for_resource($sched_act, $resource_name,
         $days, $intervals, $show, $js_function="")
@@ -358,7 +357,7 @@ function get_prac_resources($tt_id, $res_type, $selected_id)
     return $res_options;
 }
 
-function get_resources($tt_id, $res_type, $selected_id)
+function get_resource($tt_id, $res_type, $selected_id)
 {
     $query = "SELECT ID, NAME FROM RESOURCES ".
         "WHERE TT_ID = $tt_id AND TYPE = '$res_type'";

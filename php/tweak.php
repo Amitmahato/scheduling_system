@@ -248,7 +248,7 @@ function intervals()
 <h2><a href="manage_tt.php">Timetable {$_SESSION['tt_name']}</a>
 - Tweaking CLASS and PROF timetables</h2>
 
-<hr width="50%" align="left">
+<hr width="20%" align="left" padding="10px">
 <p>Timetable for
 <select id="res_select" name="res_select" onchange="javascript:new_resource()">
 $html_resources</select></p>
@@ -261,7 +261,7 @@ available for the activity you clicked on. The background of the clicked
 activity will turn green and the available spots will turn yellow. Clicking on
 a yellow cell will move the activity to that interval.
 </p>
-<hr width="50%" align="left">
+<hr width="20%" align="left">
 <p><a href="manage_tt.php">Timetable {$_SESSION['tt_name']}</a></p>
 <p><a href="index.php">Main page</a></p>
 _H;

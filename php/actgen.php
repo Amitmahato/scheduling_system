@@ -149,9 +149,9 @@ if (isset($_POST['add']))
 //debug_dump();
 $conn = connect_to_db();
 $class_options = 
-    get_resources($_SESSION['tt_id'], 'CLASS', -1);
+    get_resource($_SESSION['tt_id'], 'CLASS', -1);
 $prof_options =
-    get_resources($_SESSION['tt_id'], 'PROF', -1);
+    get_resource($_SESSION['tt_id'], 'PROF', -1);
 
 print<<<_H
 <h2>Timetable - {$_SESSION['tt_name']}</h2>

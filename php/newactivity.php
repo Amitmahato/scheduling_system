@@ -5,48 +5,62 @@
 <script language="javascript" src="../js/res_act_mng.js">
 </script>
 <style>
+body {
+    background-color: #dfdfff;
+}
+h2 {
+    font-size: 40px;
+    color: rgb(50,50,50);
+    text-align: center;
+    padding: 8px;
+}
 input[type=text],input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #fff;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: rgb(76, 135, 175);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 input[type=reset] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: rgb(76, 135, 175);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: rgb(39, 117, 168);
 }
 table {
-    border-collapse: collapse;
-    width: 100%;
+    width:80%;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th, td {
-    padding: 8px;
+    padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
+    background-color: rgb(140, 189, 223);
 }
 
 tr:hover{background-color:#f5f5f5}
@@ -367,47 +381,48 @@ else
 
 	if(!isset($_GET['editp']) || !isset($_POST['addp'])){
 		$class_options = 
-    get_resources($_SESSION['tt_id'], 'CLASS', $act_class);
+    get_resource($_SESSION['tt_id'], 'CLASS', $act_class);
 $prof_options =
-    get_resources($_SESSION['tt_id'], 'PROF', $act_prof);
+    get_resource($_SESSION['tt_id'], 'PROF', $act_prof);
 	$sub_options =
-    get_resources($_SESSION['tt_id'], 'SUB', $act_sub);
+    get_resource($_SESSION['tt_id'], 'SUB', $act_sub);
 	}
 	if(!isset($_GET['edit']) || !isset($_POST['add']) ){
 		//$prof_options=array();
 		$classp_options = 
-    get_resources($_SESSION['tt_id'], 'CLASS', $act_classp);
+    get_resource($_SESSION['tt_id'], 'CLASS', $act_classp);
 		$prof1_options =
-    get_resources($_SESSION['tt_id'], 'PROF', $act_prof1);
+    get_resource($_SESSION['tt_id'], 'PROF', $act_prof1);
 	$prof2_options =
-    get_resources($_SESSION['tt_id'], 'PROF', $act_prof2);
+    get_resource($_SESSION['tt_id'], 'PROF', $act_prof2);
 	$prof3_options=
-    get_resources($_SESSION['tt_id'], 'PROF', $act_prof3);
+    get_resource($_SESSION['tt_id'], 'PROF', $act_prof3);
 	$prac_options = get_prac_resources($_SESSION['tt_id'], 'PRAC', $act_prac);
 	}
 $existing = "<h3>Existing activities:</h3>";
 $existing .= get_defined_activities($_SESSION['tt_id'], $conn);
+
+//After h3 tag, add $generator_link befor $delete_link
 print<<<_H
 <h2>Timetable - {$_SESSION['tt_name']}</h2>
 
 $existing
 <h3>Activity data:</h3>
-$generator_link
 $delete_link
 _H;
 if(!isset($_GET['editp']) || !isset($_POST['addp'])){
 	print<<<_H
 <form method="post">
-<table width=100% bgcolor="green" height=60%>
+<table class="center">
     <tr >
-        <td><font size=30px color="orange">Type</font></td>
+        <td>Type</td>
         <td ><select name="type" id="type"
             onchange="javascript:type_changed()">
         $types_html
         </select></font></td>
     </tr>
     <tr >
-        <td><font size=30px color="orange">Class</font></td>
+        <td>Class</td>
         <td><select name="class" id="class">
         $class_options
         </select>
@@ -415,21 +430,21 @@ if(!isset($_GET['editp']) || !isset($_POST['addp'])){
     </tr>
 	
     <tr >
-        <td><font size=30px color="orange">Prof</font></td>
+        <td>Prof</td>
         <td><select name="prof" id="prof">
         $prof_options
         </select>
         </td>
     </tr>
 	<tr  >
-        <td><font size=30px color="orange">Subject</font></td>
+        <td>Subject</td>
         <td><select name="sub" id="sub">
         $sub_options
         </select>
         </td>
     </tr>
 	<tr >
-        <td><font size=30px color="orange">Length</font></td>
+        <td>Length</td>
         <td><input name="length" id="length" type="number" value="1" min="1" max="3">
         </td>
     </tr>
@@ -450,10 +465,10 @@ if(!isset($_GET['edit']) || !isset($_POST['add']) ){
 	print<<<_H
 <h1>Practical activities can be added below.</h1>
 <form method="post">
-<table width=100% bgcolor="green" height=60%>
+<table class="center">
     
     <tr >
-        <td><font size=30px color="orange">Class</font></td>
+        <td>Class</td>
         <td><select name="class" id="class">
         $classp_options
         </select>
@@ -462,7 +477,7 @@ if(!isset($_GET['edit']) || !isset($_POST['add']) ){
 	
 	
     <tr >
-        <td><font size=30px color="orange">Prof1</font></td>
+        <td>Prof1</td>
         <td><select name="prof1" id="prof1">
 		$blank="<option></option>";
         $prof1_options=$blank.$prof1_options;
@@ -470,7 +485,7 @@ if(!isset($_GET['edit']) || !isset($_POST['add']) ){
         </td>
     </tr>
 	<tr >
-        <td><font size=30px color="orange">Prof2</font></td>
+        <td>Prof2</td>
         <td><select name="prof2" id="prof2">
         $blank="<option></option>";
         $prof2_options=$blank.$prof2_options;
@@ -478,7 +493,7 @@ if(!isset($_GET['edit']) || !isset($_POST['add']) ){
         </td>
     </tr>
 	<tr >
-        <td><font size=30px color="orange">Prof3</font></td>
+        <td>Prof3</td>
         <td><select name="prof3" id="prof3">
         $blank="<option></option>";
         $prof3_options=$blank.$prof3_options;
@@ -486,7 +501,7 @@ if(!isset($_GET['edit']) || !isset($_POST['add']) ){
         </td>
     </tr>
 	<tr  >
-        <td><font size=30px color="orange">Subject</font></td>
+        <td>Subject</td>
         <td><select name="prac" id="prac">
         $prac_options
         </select>

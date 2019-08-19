@@ -22,6 +22,7 @@ print<<<_H
 <h2>Timetable</h2>
 <p>admin is logged in.</p>
 <h3>New timetable data</h3>
+<div class = "timetable_tt">
 <form method="post">
 <table>
     <tr>
@@ -42,6 +43,7 @@ print<<<_H
     </tr>
 </table>
 </form>
+</div>
 <a href="index.php">Main page</a>
 _H;
 ?>

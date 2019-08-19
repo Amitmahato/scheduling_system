@@ -3,6 +3,134 @@
 //if((!isset($_SESSION['loggedin']))| (!isset($_SESSION['signup'])))
 	//header("Location:/pro/login.php");
 ?>
+<style>
+body {
+    background-color: #dfdfff;
+}
+hr {
+    text-align: center;
+}
+h2 {
+    font-size: 40px;
+    color: rgb(50,50,50);
+    text-align: center;
+    padding: 8px;
+}
+h3 {
+    color: rgb(40,40,40);
+    text-align: left;
+}
+input[type=text],input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgb(76, 135, 175);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type=reset] {
+    width: 100%;
+    background-color: rgb(76, 135, 175);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: rgb(39, 117, 168);
+}
+table {
+    width:80%;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+    background-color: rgb(140, 189, 223);
+}
+
+tr:hover{background-color:#f5f5f5}
+
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit
+}
+
+tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit
+}
+
+table > tr {
+    vertical-align: middle;
+}
+
+col {
+    display: table-column
+}
+
+colgroup {
+    display: table-column-group
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+	font-size=50px
+}
+
+th {
+    font-weight: bold
+	font-size=50px
+}
+
+caption {
+    display: table-caption;
+    text-align: -webkit-center
+}
+</style>
 <?php
 include_once("common.php");
 

@@ -1,47 +1,62 @@
 <?php session_start(); ?>
 <style>
+body {
+    background-color: #dfdfff;
+}
+hr {
+    text-align: center;
+}
+h2 {
+    font-size: 40px;
+    color: rgb(50,50,50);
+    text-align: center;
+    padding: 8px;
+}
 input[type=text],input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #fff;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: rgb(76, 135, 175);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 input[type=reset] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: rgb(76, 135, 175);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: rgba(39, 117, 168, 10);
 }
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    background-color: rgb(140, 189, 223);
 }
 
 tr:hover{background-color:#f5f5f5}
@@ -266,7 +281,7 @@ print<<<_H
 <h2>Timetable - {$_SESSION['tt_name']}</h2>
 
 _H;
-echo "<hr width=\"50%\" align=\"left\"><h3>Timetable input</h3>";
+echo "<hr><h3>Timetable input</h3>";
 echo $resources;
 echo $activities;
 $tt_id = $_SESSION['tt_id'];
@@ -282,10 +297,10 @@ else
 {
     $generate_url = "javascript:confirm_start_over()";
 }
-echo "<hr width=\"50%\" align=\"left\"><h3>";
+echo "<hr><h3>";
 echo "<a href=\"$generate_url\">Generate</a> ";
 echo "<a href=\"tweak.php\">Tweak</a></h3> ";
-echo "<hr width=\"50%\" align=\"left\"><h3>Timetable output</h3>";
+echo "<hr><h3>Timetable output</h3>";
 if ($html_tt != "")
 {
     generate_chooser($used_resources);
@@ -295,19 +310,8 @@ else
 {
     echo "<p>No timetable generated yet</p>";
 }
-echo "<hr width=\"50%\" align=\"left\">";
+echo "<hr>";
 echo "<p><a href=\"index.php\">Main page</a></p>";
-echo "<p style='color:green;'>Export to Excel and add the following alternate practicals where there are red colored practicals:<br />
-       <br/>For BCT<br/>
-	   Thermodynamics[P] with Basic Electronics Engineering<br />
-	   Electrical Machine[P] with Instrumentation[P]<br/>
-	   Operating System[P] with Embedded System[P] <br/>
-	   Information System[P] with Internet & Intranet[P]<br/><br/>
-	   For BEX<br/>
-	   Thermodynamics[P] with Basic Electronics Engineering<br />
-	   Electrical Machine[P] with Instrumentation[P]<br/>
-	   Signal Analysis[P] with Communication System I[P]<br/>
-	   Propagation Antenna[P] with Embedded System[P]<br/>
-	   RF & Microwave Engineering[P] with Digital Signal Processing[P]<br/></p> ";
+echo "<p style='color:green;'>Export to Excel and add the following alternate practicals where there are red colored practicals:<br /> ";
 ?>
 
