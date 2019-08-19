@@ -154,8 +154,8 @@ caption {
     /* align:center; */
     position:relative;
     left:35%;
-    border-left:5px solid blue ;
-    border-radius:20px;
+    border-left:5px solid #dfdfff ;
+    border-radius:5px;
     box-shadow: 1px 1px 5px;
     animation: displaytimetable 1s;
     animation-delay: 0.8s;
