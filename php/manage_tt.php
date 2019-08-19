@@ -278,7 +278,7 @@ $conn = connect_to_db();
 $resources = get_defined_resources($_SESSION['tt_id'], $conn);
 $activities = get_defined_activities($_SESSION['tt_id'], $conn);
 print<<<_H
-<h2>Timetable - {$_SESSION['tt_name']}</h2>
+<h2><a href="index.php" style="text-decoration:none;color:initial;">Timetable</a> - {$_SESSION['tt_name']}</h2>
 
 _H;
 echo "<hr><h3>Timetable input</h3>";
