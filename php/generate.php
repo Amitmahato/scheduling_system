@@ -926,8 +926,8 @@ function validate_avl_by_room_prac($tt_id,$conn,&$room_avl, $avl,$act)
 			}
 				else
 				{
-						echo "Practical name not found in resources for given practical id in practical table";
-						echo $subject;
+						// echo "Practical name not found in resources for given practical id in practical table";
+						// echo $subject;
 				}
 			
 			
@@ -1476,7 +1476,7 @@ function schedule_practical($tt_id,$conn)
         }
         else
         {
-            echo ("Can't find suitable room2!");
+            // echo ("Can't find suitable room!");
         }
     }
 	//dump_var($sched_acts);
