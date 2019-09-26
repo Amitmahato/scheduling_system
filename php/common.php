@@ -378,11 +378,11 @@ function get_resource($tt_id, $res_type, $selected_id)
 function get_defined_resources_by_type($tt_id, $conn, $type)
 {
     $resources = "";
-    $resources .= "\n<div id=\"{$type}_res\" ".
-        "style=\"display:none\">\n";
-    $resources .= "<b>$type resources</b><br>\n";
-     $query = "SELECT * FROM RESOURCES " .
-        "WHERE TT_ID=$tt_id AND TYPE='$type'";
+    $resources .= "\n<div id=\"{$type}_res\" style='margin-left:10px; margin-top:15px; font-style:italic; display:none;'>";
+    $resources .= "<b>$type Resources</b><br>\n";
+     $query = "SELECT * FROM RESOURCES ";
+     $query .= "WHERE TT_ID=$tt_id AND TYPE='$type'";
+     $query .= " ORDER BY NAME ASC";
 //    $resources .= "<p>$query</p>";
     $result = mysqli_query($conn,$query)
         or die ("Can't get resources!");
@@ -400,10 +400,12 @@ function get_defined_resources_by_type($tt_id, $conn, $type)
             $res_type = $row['TYPE'];
             $res_size = $row['SIZE'];
             $resources .= "<a href=\"editres.php?id=$res_id\">";
-            $resources .= "$res_name";
             if ($res_type != 'PROF' && $res_type != 'SUB' && $res_type != 'PRAC')
             {
-                $resources .= " ($res_size)";
+                $resources .= "<button style='background-color: rgb(106, 165, 205); color: white; text-decoration:none; padding:5px; margin-left:5px; margin-top:5px; border: none; border-radius: 5px; cursor: pointer;'>$res_name ($res_size)</button>";
+            }
+            else{
+                $resources .= "<button style='background-color: rgb(106, 165, 205); color: white; text-decoration:none; padding:5px; margin-left:5px; margin-top:5px; border: none; border-radius: 5px; cursor: pointer;'>$res_name</button>";
             }
             $resources .= "</a>\n";
         }
@@ -414,17 +416,17 @@ function get_defined_resources_by_type($tt_id, $conn, $type)
 
 function get_defined_resources($tt_id, $conn)
 {
-    $result = "";
-    $result .= "<b>Resources</b> ";
+    $result = "<div style='border-left: solid #aaa; padding-left:5px; margin:5px;'>";
+    $result .= "<b style='font-size:21px'>Resources : </b> ";
     $result .= "<a id=\"show_lnk\" ";
-    $result .= "href=\"javascript:show_res('block')\">show</a> ";
-    $result .= "<a href=\"newresource.php\">new</a>";
+    $result .= "href=\"javascript:show_res('block')\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'> show </a> ";
+    $result .= "<a href=\"newresource.php\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'> new </a>";
     $result .= get_defined_resources_by_type($tt_id, $conn, "CLASS");
     $result .= get_defined_resources_by_type($tt_id, $conn, "PROF");
     $result .= get_defined_resources_by_type($tt_id, $conn, "ROOM");
 	$result .= get_defined_resources_by_type($tt_id, $conn, "SUB");
 	$result .= get_defined_resources_by_type($tt_id, $conn, "PRAC");
-    $result .= "<br>";
+    $result .= "<br></div>";
 	
 	//echo $result;
     return $result;
@@ -453,11 +455,11 @@ function get_defined_activities_by_cat($tt_id, $conn, $cat)
         or die ("Can't get activities!");
 	
     $activities = "";
-    $activities .= "<b>Activities by $cat:</b>\n";
-    $activities .= "<a href=\"javascript:show_activity('block','$cat')\" " .
-        "id=\"show_lnk_act_$cat\">show</a>\n";
-    $activities .= "<a href=\"newactivity.php\">new</a>\n";
-    $activities .= "<div id=\"act_$cat\" style=\"display:none\">\n";
+    $activities .= "<b style='font-size:20px'>Activities by $cat : </b>\n";
+    $activities .= "<a href=\"javascript:show_activity('block','$cat')\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'" .
+        "id=\"show_lnk_act_$cat\"> show </a>\n";
+    $activities .= "<a href=\"newactivity.php\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'> new </a>\n";
+    $activities .= "<div id=\"act_$cat\" style=\"display:none\"><div style='margin-left:10px;'>";
     if (mysqli_num_rows($result) == 0)
     {
         $activities .= "<p>You have defined no activities!</p>\n";
@@ -487,14 +489,14 @@ function get_defined_activities_by_cat($tt_id, $conn, $cat)
             if ($crt_cat != $$catvar)
             {
                 $crt_cat = $$catvar;
-                $activities .= "<br><b>$crt_cat</b><br>\n";
+                $activities .= "<div style=\"margin-top:20px; font-weight:bold\"><i>$crt_cat</i></div>\n";
             }
             $activities .= "<a href=\"newactivity.php?edit=$act_id\">";
-            $activities .= "$class_name - $prof_name - $sub_name</a>\n";
+            $activities .= "<button style='background-color: rgb(106, 165, 205); color: white; text-decoration:none; padding:5px; margin-left:5px; margin-top:5px; border: none; border-radius: 5px; cursor: pointer;'>$class_name - $prof_name - $sub_name</button></a>\n";
         }
 		
     }
-    $activities .= "</div><br>\n";
+    $activities .= "</div></div><br>\n";
     return $activities;
 }
 
@@ -515,11 +517,11 @@ function get_defined_pracs($tt_id, $conn, $cat)
         or die ("Can't get activities!");
 	
     $activities = "";
-    $activities .= "<b>Activities by $cat:</b>\n";
-    $activities .= "<a href=\"javascript:show_activity('block','$cat')\" " .
-        "id=\"show_lnk_act_$cat\">show</a>\n";
-    $activities .= "<a href=\"newactivity.php\">new</a>\n";
-    $activities .= "<div id=\"act_$cat\" style=\"display:none\">\n";
+    $activities .= "<b style='font-size:20px'>Activities by $cat : </b>\n";
+    $activities .= "<a href=\"javascript:show_activity('block','$cat')\"  style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'" .
+        "id=\"show_lnk_act_$cat\"> show </a>\n";
+    $activities .= "<a href=\"newactivity.php\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'> new </a>\n";
+    $activities .= "<div id=\"act_$cat\" style=\"display:none;\"><div style='margin-left:10px;'>";
     if (mysqli_num_rows($result) == 0)
     {
         $activities .= "<p>You have defined no activities!</p>\n";
@@ -550,28 +552,37 @@ function get_defined_pracs($tt_id, $conn, $cat)
             if ($crt_cat != $$catvar)
             {
                 $crt_cat = $$catvar;
-                $activities .= "<br><b>$crt_cat</b><br>\n";
+                $activities .= "<div style=\"margin-top:20px; font-weight:bold\"><i>$crt_cat</i></div>\n";
             }
 			
             $activities .= "<a href=\"newactivity.php?editp=$act_id\">";
-            $activities .= "$class_name - $prof1_name,$prof2_name,$prof3_name - $prac_name</a>\n";
+            $activities .= "<button style='background-color: rgb(106, 165, 205); color: white; text-decoration:none; padding:5px; margin-left:5px; margin-top:5px; border: none; border-radius: 5px; cursor: pointer;'>$class_name - $prof1_name,$prof2_name,$prof3_name - $prac_name</button></a>\n";
         }
 		
     }
-    $activities .= "</div><br>\n";
+    $activities .= "</div></div><br>\n";
     return $activities;
 }
 
 function get_defined_activities($tt_id, $conn)
 {
     $activities = "";
-    $activities .= 
-        get_defined_activities_by_cat($tt_id, $conn, 'class');
-    $activities .=
-        get_defined_activities_by_cat($tt_id, $conn, 'prof');
-		$activities .=
-        get_defined_activities_by_cat($tt_id, $conn, 'sub');
-		$activities .=get_defined_pracs($tt_id, $conn, 'prac');
+    $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
+    $activities .= get_defined_activities_by_cat($tt_id, $conn, 'class');
+    $activities .= "</div>";
+    
+    $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
+    $activities .= get_defined_activities_by_cat($tt_id, $conn, 'prof');
+    $activities .= "</div>";
+
+    $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
+	$activities .= get_defined_activities_by_cat($tt_id, $conn, 'sub');
+    $activities .= "</div>";
+
+    $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
+	$activities .= get_defined_pracs($tt_id, $conn, 'prac');
+    $activities .= "</div>";
+    
     return $activities;
 }
 

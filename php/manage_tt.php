@@ -185,7 +185,12 @@ include_once("common.php");
 if(isset($_POST['export']))
 {
 $file="demo.xls";
-$test="<table  ><tr><td>Cell 1</td><td>Cell 2</td></tr></table>";
+$test="<table  >
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+            </tr>
+        </table>";
 header("Content-type: application/vnd.ms-excel");
 header("Content-Disposition: attachment; filename=$file");
 echo $test;
@@ -281,7 +286,7 @@ print<<<_H
 <h2><a href="index.php" style="text-decoration:none;color:initial;">Timetable</a> - {$_SESSION['tt_name']}</h2>
 
 _H;
-echo "<hr><h3>Timetable input</h3>";
+echo "<hr><h3 style='font-size:30px'>Timetable Input</h3>";
 echo $resources;
 echo $activities;
 $tt_id = $_SESSION['tt_id'];
@@ -300,7 +305,7 @@ else
 echo "<hr><h3>";
 echo "<a href=\"$generate_url\">Generate</a> ";
 echo "<a href=\"tweak.php\">Tweak</a></h3> ";
-echo "<hr><h3>Timetable output</h3>";
+echo "<hr><h3 style='font-size:30px'>Timetable Output</h3>";
 if ($html_tt != "")
 {
     generate_chooser($used_resources);
