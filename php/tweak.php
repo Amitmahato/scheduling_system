@@ -195,7 +195,7 @@ $resources = read_resources($tt_id, $conn,
 $html_resources = "";
 foreach ($resources as $res)
 {
-    if ($res['type'] != 'ROOM')
+    if ($res['type'] == 'CLASS')
     {
         if ($res_name == "")
         {
