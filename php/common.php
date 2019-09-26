@@ -264,7 +264,7 @@ function fix_avl($avl, $days, $intervals)
 
 function read_resources($tt_id, $conn, $days, $intervals)
 {
-    $query = "SELECT * FROM RESOURCES WHERE TT_ID=$tt_id";
+    $query = "SELECT * FROM RESOURCES WHERE TT_ID=$tt_id ORDER BY RESOURCES.TYPE ASC, RESOURCES.NAME ASC";
     $result = mysqli_query($conn,$query)
         or die("Can't read activities!");
     $resources = array();
@@ -422,10 +422,10 @@ function get_defined_resources($tt_id, $conn)
     $result .= "href=\"javascript:show_res('block')\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'> show </a> ";
     $result .= "<a href=\"newresource.php\" style='background-color: rgb(66, 125, 165); color: white; text-decoration:none; padding:5px; margin-left:5px; border: none; border-radius: 5px; cursor: pointer;'> new </a>";
     $result .= get_defined_resources_by_type($tt_id, $conn, "CLASS");
+	$result .= get_defined_resources_by_type($tt_id, $conn, "PRAC");
     $result .= get_defined_resources_by_type($tt_id, $conn, "PROF");
     $result .= get_defined_resources_by_type($tt_id, $conn, "ROOM");
 	$result .= get_defined_resources_by_type($tt_id, $conn, "SUB");
-	$result .= get_defined_resources_by_type($tt_id, $conn, "PRAC");
     $result .= "<br></div>";
 	
 	//echo $result;
@@ -572,15 +572,15 @@ function get_defined_activities($tt_id, $conn)
     $activities .= "</div>";
     
     $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
+	$activities .= get_defined_pracs($tt_id, $conn, 'prac');
+    $activities .= "</div>";
+
+    $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
     $activities .= get_defined_activities_by_cat($tt_id, $conn, 'prof');
     $activities .= "</div>";
 
     $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
 	$activities .= get_defined_activities_by_cat($tt_id, $conn, 'sub');
-    $activities .= "</div>";
-
-    $activities .= "<div style='border-left: solid #aaa; padding-left:5px; margin:5px; margin-top:10px;'>";
-	$activities .= get_defined_pracs($tt_id, $conn, 'prac');
     $activities .= "</div>";
     
     return $activities;
